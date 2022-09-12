@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import {Link} from 'react-router-dom'
-import App1 from '../graph'
+import Graph from '../graph'
 
 // https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/
  
@@ -15,9 +15,11 @@ function Choosepage() {
   const [confirmed, setConfirmed] = useState([])
   const [live, setLive] = useState('');
   
-  const arrResult = active;
-  const arrNew = [1,2,3,4,5,6,7,8]
-  
+  const arrResult = []
+  const arrName = name;
+  const arrActive = active;
+  const arrConfirmed = confirmed
+ 
   const arr = () =>{
     const options = {
       method: 'GET',
@@ -34,7 +36,7 @@ function Choosepage() {
       const datas = data.data;
   
       datas.forEach(function(value, index) {
-      arrResult[index] = value;(datas);
+      arrResult[index] = value;
   
     });
       
@@ -62,50 +64,51 @@ function Choosepage() {
     arr()
      },[])
      
-    //  console.log(name)
-    //  console.log(active)
-    //  console.log(confirmed)
-    console.log(arrResult)
-  
-
 
     const handleChange = (event) => {
       console.log('change');
-      console.log("event",setLive(event.target.value));
+      console.log("event",setLive(event.target.value))
+      // console.log(event);
+      // setActive(...active[live]);
+      // setName(...name[live]);
     }
 
-
+    // console.log[name]
 //https://thewebdev.info/2022/02/07/how-to-map-multiple-arrays-with-javascript/
     const country = (name, province) => name.map((x, i) => {
       return (
-        <option key={i}>
+        <option value={i}>
           {[x, " " + province[i]]}
         </option> 
+        
     )})
-    // console.log[name]
-
+    // setActive(...active[live]);
+    console.log(name[live])
+    console.log(active[live])
+    console.log(confirmed[live]);
+    console.log(province[live])
+    // console.log(arrResult[live])
+  
+// console.log(typeof(country(name,province)))
 
       return (
       <div> 
         <div>
         <Container>
-          <Row>
-            <Col>
-              <Form>
-                <Form.Group controlId="exampleForm.SelectCustom">
-                  <Form.Label>Select a Country</Form.Label>
+                  <Form.Label className='formlabel'>Select a Country</Form.Label>
                   <br />
-                  <Form.Control as="select" custom={+true} onChange={handleChange} style={{marginLeft: "0"}}>
+                  <Form.Control as="select" custom={+true} onChange={handleChange} className='dropdown'>
                      {country(province,name)}
                   </Form.Control>
-                </Form.Group>
-              </Form>
-            </Col>
-          </Row>
         </Container>
+        <br />
           <h4>Selected: {live} </h4>
-          <App1 arrResult={arrResult}/>
+          <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed}/>
+          <br />
+          <br />
+          <div>
           <Link to="/charts/">Home</Link>
+          </div>
       </div>
       
 </div>

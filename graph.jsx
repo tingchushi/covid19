@@ -1,42 +1,41 @@
 // import React from 'react';
 import Plot from 'react-plotly.js';
 import {Link,useNavigate,useParams} from 'react-router-dom'
-import arrResult from '/pages/Choosepage'
+import arrName from '/pages/Choosepage'
+import arrActive from '/pages/Choosepage'
 // import detail from './pages/Choosepage'
 
 import React from 'react';
 import { Bar } from "react-chartjs-2";
  
 // const App1 = ({arrResult}) =>{
+//   return arrResult
   
-  
-  class App1 extends React.Component {
- 
-    render() {
-      console.log(this.arrResult)
-      return (
-        <div>
+//   }
+
+  // console.log(App1())
+ function Graph ({ arrName , arrActive }){
+  return ( <div>
             
-            <Link to="/">Back to Home</Link>
+            {/* <Link to="/">Back to Home</Link> */}
       <Plot
         data={[
-          {
-            x: this.arrResult,
-            y: this.arrResult,
-            type: 'scatter',
-            mode: 'lines+markers',
-            marker: {color: 'red'},
-          },
-          {type: 'bar', x: this.arrResult, y: this.arrResult},
+            {
+                // x:,
+                // y:,
+                type: 'bar',
+                mode: 'lines+markers',
+                marker: {color: 'purple'},
+            },
+            {type: 'bar', x: arrName, y: arrActive},
         ]}
-        layout={ {width: 1280, height: 768, title: 'A Fancy Plot'} }
+        layout={ {width: 1600, height: 900, title: 'Overall' }}
         />
         </div>
         );
-      }
-    }
-  // }
-    export default App1;
+  }
+
+    export default Graph;
 //https://codesandbox.io/s/fcn3v?file=/src/Employee_Joined.js
 // class App1 extends React.Component {
 //   render()) {
