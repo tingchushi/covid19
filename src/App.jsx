@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
           <Route
-              path="case"
+              path="Analysis"
               element={<Choosepage />}
           />
           </Route>

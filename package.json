@@ -12,7 +12,10 @@
     "@coreui/react-chartjs": "^2.1.0",
     "bizcharts": "^4.1.20",
     "bootstrap": "^5.2.1",
+<<<<<<< HEAD
     "cdbreact": "^1.5.3",
+=======
+>>>>>>> 9bcc3b5b24fe1434df9f7c0d9052ded713dc0e96
     "chart.js": "^3.9.1",
     "devextreme-react": "^22.1.5",
     "install": "^0.13.0",

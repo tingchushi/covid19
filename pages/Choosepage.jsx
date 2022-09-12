@@ -104,9 +104,12 @@ function Choosepage() {
         <br />
           <h4>Selected: {live} </h4>
           <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed}/>
+<<<<<<< HEAD
           <br />
           <br />
           <div>
+=======
+>>>>>>> 9bcc3b5b24fe1434df9f7c0d9052ded713dc0e96
           <Link to="/charts/">Home</Link>
           </div>
       </div>
