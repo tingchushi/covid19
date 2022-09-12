@@ -4,7 +4,7 @@ import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import {Link} from 'react-router-dom'
-import App1 from '../graph'
+import Graph from '../graph'
 
 // https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/
  
@@ -15,9 +15,11 @@ function Choosepage() {
   const [confirmed, setConfirmed] = useState([])
   const [live, setLive] = useState('');
   
-  const arrResult = active;
-  const arrNew = [1,2,3,4,5,6,7,8]
-  
+  const arrResult = []
+  const arrName = name;
+  const arrActive = active;
+  const arrConfirmed = confirmed
+ 
   const arr = () =>{
     const options = {
       method: 'GET',
@@ -34,7 +36,7 @@ function Choosepage() {
       const datas = data.data;
   
       datas.forEach(function(value, index) {
-      arrResult[index] = value;(datas);
+      arrResult[index] = value;
   
     });
       
@@ -62,12 +64,6 @@ function Choosepage() {
     arr()
      },[])
      
-    //  console.log(name)
-    //  console.log(active)
-    //  console.log(confirmed)
-    console.log(arrResult)
-  
-
 
     const handleChange = (event) => {
       console.log('change');
@@ -104,7 +100,7 @@ function Choosepage() {
           </Row>
         </Container>
           <h4>Selected: {live} </h4>
-          <App1 arrResult={arrResult}/>
+          <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed}/>
           <Link to="/charts/">Home</Link>
       </div>
       

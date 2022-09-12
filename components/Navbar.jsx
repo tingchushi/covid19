@@ -1,18 +1,21 @@
 import {Link} from 'react-router-dom'
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
-function Navbar() {
+function Navbar1() {
     return (
       <nav>
         <ul>
           <li>
-                <Link to="/">Country</Link>
+                <Link to="/">Home</Link>
             </li>
             <li>
-                <Link to="/case">Cases</Link>
+                <Link to="/Analysis">Analysis</Link>
             </li>
         </ul>
       </nav>
     );
   }
   
-  export default Navbar;
+  export default Navbar1;
