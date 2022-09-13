@@ -23,21 +23,13 @@ import { Bar } from "react-chartjs-2";
             {
                 // x:,
                 // y:,
-<<<<<<< HEAD
                 type: 'bar',
-=======
-                type: 'scatter',
->>>>>>> 9bcc3b5b24fe1434df9f7c0d9052ded713dc0e96
                 mode: 'lines+markers',
                 marker: {color: 'purple'},
             },
             {type: 'bar', x: arrName, y: arrActive},
         ]}
-<<<<<<< HEAD
         layout={ {width: 1600, height: 900, title: 'Overall' }}
-=======
-        layout={ {width: 1600, height: 900, title: {arrActive}} }
->>>>>>> 9bcc3b5b24fe1434df9f7c0d9052ded713dc0e96
         />
         </div>
         );
