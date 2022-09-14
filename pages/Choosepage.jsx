@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react'
-// import Container from 'react-bootstrap/Container'
 import Form from 'react-bootstrap/Form'
 import {Link} from 'react-router-dom'
-import Graph from '../graph'
+import Graph from './graph'
 import { Button , Card} from 'react-bootstrap'
-// import ListGroup from 'react-bootstrap/ListGroup'
 import {Container ,ListGroup, Col} from 'react-bootstrap';  
+import LineGraph from '/pages/LineGraph'
 
 
 // https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/
@@ -17,6 +16,7 @@ function Choosepage() {
   const [confirmed, setConfirmed] = useState([])
   const [live, setLive] = useState('');
   const [details, setDetails] = useState([])
+  // const [state, useState] = useState(details)
 
   
   const arrResult = []
@@ -65,26 +65,20 @@ function Choosepage() {
    
     })
   }
-  // console.log(details)
-  // console.log(details[live]?.active)
-  // console.log(details[live]?.confirmed)
-  // console.log(details[live]?.region.name)
-  // console.log(details[live]?.region.iso)
-  // console.log(details[live]?.region.lat)
-  // console.log(details[live]?.region.long)
-  // console.log(details[live]?.active)
-  // console.log(details[live]?.confirmed)
-  // console.log(details[live]?.confirmed_diff)
-  // console.log(details[live]?.recovered)
-  // console.log(details[live]?.recovered_diff)
-  // console.log(details[live]?.fatality_rate)
-  // console.log(details[live]?.deaths)
-  // console.log(details[live]?.deaths_diff)
-  
+
   useEffect(() => {
     arr()
      },[])
-     
+    
+    //  addToFavorite = id => {
+    //   const data = this.state.arrResult.find(item => item.id === id);
+    //   this.setState({
+    //     booksfav: [...this.state.booksfav, data]
+    //   });
+    // }; 
+
+    // console.log(state)
+
     const handleChange = (event) => {
       console.log('change');
       console.log("event",setLive(event.target.value))
@@ -110,55 +104,50 @@ function Choosepage() {
           </Form.Control>
         </Container>
           <br />
-          <h8>
-            {/* Selected: {live} */}
-            {/* <br />
-            <br /> */}
-            <ul>
-                {/* <li> Index : {live}</li> 
-                <li> Country Name : {details[live]?.region.province}  {details[live]?.region.name}</li>
-                <li> Active Cases : {details[live]?.active}</li>
-                <li>Location : Longitude{details[live]?.region.lat}, Latitude{details[live]?.region.long}</li>
-                <li>Confirmed Cases :{details[live]?.confirmed}</li>
-                <li>Confirmed Diff :{details[live]?.confirmed_diff}</li>
-                <li>Recovered: {details[live]?.recovered}</li>
-                <li>Recovered Diff: {details[live]?.recovered_diff}</li>
-                <li>Fatality Rate: {details[live]?.fatality_rate}</li>
-                <li>Death: {details[live]?.deaths}</li>
-                <li>Death Diff: {details[live]?.deaths_diff}</li> */}
-                <Card style={{ width: '30rem' }}>
+          <div className="cardContainer">
+            <div>
+              <ul>
+                  <Card style={{ width: '30rem' }}>
+                  <Card.Body>
+                    <Card.Title>{details[live]?.region.province}  {details[live]?.region.name}</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">Longitude : {details[live]?.region.lat}<br /> Latitude : {details[live]?.region.long}</Card.Subtitle>
+                    <Card.Text>
+                    <ul>
+                      <li> Index : {live}</li> 
+                      <li> Active Cases : {details[live]?.active}</li>
+                      <li>Confirmed Cases :{details[live]?.confirmed}</li>
+                      <li>Confirmed Diff :{details[live]?.confirmed_diff}</li>
+                      <li>Recovered: {details[live]?.recovered}</li>
+                      <li>Recovered Diff: {details[live]?.recovered_diff}</li>
+                      <li>Fatality Rate: {details[live]?.fatality_rate}</li>
+                      <li>Death: {details[live]?.deaths}</li>
+                      <li>Death Diff: {details[live]?.deaths_diff}</li>
+                    </ul>
+                    </Card.Text>
+                    <Button href="/pricing">Add to Favs</Button>
+                    <Button href="#">Another Link</Button>
+                  </Card.Body>
+                </Card>
+              </ul>
+            </div>
+            <div>  
+              <ul>
+              <Card style={{ width: '80rem' }}>
                 <Card.Body>
                   <Card.Title>{details[live]?.region.province}  {details[live]?.region.name}</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">Longitude : {details[live]?.region.lat}<br /> Latitude : {details[live]?.region.long}</Card.Subtitle>
+                  <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                   <Card.Text>
-                  <ul>
-                    <li> Index : {live}</li> 
-                    {/* <li> Country Name : {details[live]?.region.province}  {details[live]?.region.name}</li> */}
-                    <li> Active Cases : {details[live]?.active}</li>
-                    {/* <li>Location : Longitude{details[live]?.region.lat}, Latitude{details[live]?.region.long}</li> */}
-                    <li>Confirmed Cases :{details[live]?.confirmed}</li>
-                    <li>Confirmed Diff :{details[live]?.confirmed_diff}</li>
-                    <li>Recovered: {details[live]?.recovered}</li>
-                    <li>Recovered Diff: {details[live]?.recovered_diff}</li>
-                    <li>Fatality Rate: {details[live]?.fatality_rate}</li>
-                    <li>Death: {details[live]?.deaths}</li>
-                    <li>Death Diff: {details[live]?.deaths_diff}</li>
-                  </ul>
+        
                   </Card.Text>
                   <Button href="/pricing">Add to Favs</Button>
                   <Button href="#">Another Link</Button>
                 </Card.Body>
               </Card>
-
-            </ul>
-            
-            <div>  
-          </div>   
-              
-          </h8>
-          <Link to="/pricing">
+              </ul>
+            </div>   
+          </div>
             <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed}/>
-          </Link>
+            <LineGraph arrName={arrName} details={details} live={live}/>
           <br />
           <br />
           <div>

@@ -5,7 +5,7 @@ import Homepage from '/pages/Homepage'
 import currencies from './list'
 import Layout from "/layouts/Layout";
 import Choosepage from "../pages/Choosepage";
-import App1 from "../graph";
+import App1 from "../pages/graph";
 // import graph from './graph'
 
 

@@ -96,3 +96,9 @@ top: -10px;
   position: absolute;
 
 }
+
+.cardContainer {
+  display: flex;
+  left: 0px;
+
+}
