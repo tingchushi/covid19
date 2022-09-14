@@ -14,7 +14,7 @@ import { Bar } from "react-chartjs-2";
 //   }
 
   // console.log(App1())
- function Graph ({ arrName , arrActive }){
+ function Graph ({ arrName , arrActive, detailsArr }){
   return ( <div>
             
             {/* <Link to="/">Back to Home</Link> */}
