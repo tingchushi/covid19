@@ -14,9 +14,9 @@ function Choosepage() {
   const [province, setProvince] = useState([])
   const [active, setActive] = useState([])
   const [confirmed, setConfirmed] = useState([])
-  const [live, setLive] = useState('');
+  const [live, setLive] = useState(0);
   const [details, setDetails] = useState([])
-  // const [state, useState] = useState(details)
+  const [search, setSearch] = useState([])
 
   
   const arrResult = []
@@ -77,7 +77,46 @@ function Choosepage() {
     //   });
     // }; 
 
-    // console.log(state)
+// console.log(details)
+const detail = [
+  {
+    id: 1,
+    name: "Rahvayana",
+    // image: require("./assets/rahvayana.jpg"),
+    description:
+      "Yang menulis di buku ini belum tentu saya, sebab Rahwana tak mati-mati. Gunung kembar Sondara-Sondari yang mengimpit Rahwana cuma mematikan tubuhnya semata. Jiwa Rahwana terus hidup. Hidupnya menjadi gelembung-gelembung alias jisim. Siapa pun bisa dihinggapi gelembung itu, tak terkecuali saya.   Yang menulis di buku ini barangkali gelembung-gelembung itu, jisim…",
+    author: "Sujiwo Tejo"
+  },
+  {
+    id: 2,
+    name: "Tuhan Maha Asyik",
+    // image: require("./assets/tuhan.jpg"),
+    description:
+      "Melalui kisah-kisah yang dikemas dalam dialog polos ala dunia bocah, Sujiwo Tejo dan Buya MN. Kamba coba mengajak kita ”bermain-main” untuk memperkenalkan ke-Maha Asyik-an Tuhan. Tuhan sangat asyik ketika Dia tidak kita kurung paksa dalam penamaan-penamaan dan pemaknaan-pemaknaan. Dia tak terdefinisikan. Dia tak terkmaknakan. Dia ada sebelum definisi dan makna…",
+    author: "Sujiwo Tejo"
+  },
+  {
+    id: 3,
+    name: "Sabdo Cinta Angon Kasih",
+    // image: require("./assets/sabdo.jpg"),
+    description:
+      "Mbok Jamu berselendang ungu itu menjadi sumber kebahagiaan bagi orang-orang yang datang dan pergi membeli dagangannya. Bukan karena rambut hitam kehijauannya, lereng keningnya yang bening, atau kecantikannya yang tiada tara. Para pria menjadi platinum member jamunya karena Mbok Jamu pintar memosisikan diri sebagai konco wingking. Perempuan yang posisinya selangkah di…",
+    author: "Sujiwo Tejo"
+  },
+  {
+    id: 4,
+    name: "Talijiwo",
+    // image: require("./assets/talijiwo.jpg"),
+    description:
+      "Sudah berapa lama kau terjebak dengan beragam kesibukan yang tak habis-habis itu? Berhentilah berbusa-busa tentang kemerdekaan bila ternyata kau sendiri tak punya waktu luang. Padahal, hanya di dalam waktu luang manusia bisa berpikir dan merenung tentang bagaimana seyogianya mengisi kemerdekaan hidup. Maka, waktu luang itu jangan dimampatkan lagi dengan melulu…",
+    author: "Sujiwo Tejo"
+  }
+]
+    const addToFavorite = () => {
+      setSearch([...search, details[live]])
+      console.log(search)
+    }
+
 
     const handleChange = (event) => {
       console.log('change');
@@ -95,7 +134,7 @@ function Choosepage() {
 
       return (
       <div> 
-        <div>
+        <h3>
         <Container>
           <Form.Label className='formlabel'>Select a Country</Form.Label>
             <br />
@@ -112,7 +151,7 @@ function Choosepage() {
                     <Card.Title>{details[live]?.region.province}  {details[live]?.region.name}</Card.Title>
                     <Card.Subtitle className="mb-2 text-muted">Longitude : {details[live]?.region.lat}<br /> Latitude : {details[live]?.region.long}</Card.Subtitle>
                     <Card.Text>
-                    <ul>
+                    <ul style={{fontSize: 18}}>
                       <li> Index : {live}</li> 
                       <li> Active Cases : {details[live]?.active}</li>
                       <li>Confirmed Cases :{details[live]?.confirmed}</li>
@@ -124,7 +163,7 @@ function Choosepage() {
                       <li>Death Diff: {details[live]?.deaths_diff}</li>
                     </ul>
                     </Card.Text>
-                    <Button href="/pricing">Add to Favs</Button>
+                    <Button onClick={addToFavorite}>Add to Favs</Button>
                     <Button href="#">Another Link</Button>
                   </Card.Body>
                 </Card>
@@ -132,21 +171,33 @@ function Choosepage() {
             </div>
             <div>  
               <ul>
-              <Card style={{ width: '80rem' }}>
+              <Card style={{ width: '60rem' }}>
                 <Card.Body>
-                  <Card.Title>{details[live]?.region.province}  {details[live]?.region.name}</Card.Title>
+                  <Card.Title>
+                    <div>
+                    <div>
+                      Favourite List: 
+                      <ul>
+                      {search.map(function(d, idx){
+                        return (<li key={idx}>{d?.region.province} <th>{d?.region.name}</th> : {d?.active} : {d?.confirmed} { d?.confirmed_diff} {d?.recovered}</li>)
+                      })}
+                      </ul>
+                      </div>
+
+                    </div>
+                  </Card.Title>
                   <Card.Subtitle className="mb-2 text-muted"></Card.Subtitle>
                   <Card.Text>
         
                   </Card.Text>
-                  <Button href="/pricing">Add to Favs</Button>
-                  <Button href="#">Another Link</Button>
+                  <Button></Button>
+                  <Button href="#"></Button>
                 </Card.Body>
               </Card>
               </ul>
             </div>   
           </div>
-            <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed}/>
+            <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} />
             <LineGraph arrName={arrName} details={details} live={live}/>
           <br />
           <br />
@@ -155,7 +206,7 @@ function Choosepage() {
               <Button>Home</Button>
             </Link>
           </div>
-      </div>
+      </h3>
       
 </div>
   )

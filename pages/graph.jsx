@@ -10,11 +10,11 @@ import React from 'react';
             {
                 // x:,
                 // y:,
-                type: 'bar',
+                type: 'line',
                 mode: 'lines+markers',
                 marker: {color: 'purple'},
             },
-            {type: 'histogram', x: arrName, y: arrActive},
+            {type: 'line', x: arrName, y: arrActive, name:'Active Cases'},
         ]}
         layout={ {width: 1600, height: 900, title: 'Overall' }}
         />

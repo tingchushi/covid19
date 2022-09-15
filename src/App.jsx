@@ -23,7 +23,6 @@ function App() {
               element={<Choosepage />}
           />
           </Route>
-          {/* <Route path="/charts" element={<Pricepage />} /> */}
           <Route path='/charts' element={<App1 />} />
           <Route path="*" element={<h1>Not found</h1>} />
         </Routes>
