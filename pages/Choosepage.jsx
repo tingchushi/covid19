@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import {Link} from 'react-router-dom'
-import Graph from './graph'
+import Graph from './Graph'
 import { Button , Card} from 'react-bootstrap'
 import {Container ,ListGroup, Col} from 'react-bootstrap';  
 import LineGraph from '/pages/LineGraph'
@@ -70,14 +70,7 @@ function Choosepage() {
     arr()
      },[])
     
-    //  addToFavorite = id => {
-    //   const data = this.state.arrResult.find(item => item.id === id);
-    //   this.setState({
-    //     booksfav: [...this.state.booksfav, data]
-    //   });
-    // }; 
 
-// console.log(details)
 const detail = [
   {
     id: 1,
@@ -115,6 +108,12 @@ const detail = [
     const addToFavorite = () => {
       setSearch([...search, details[live]])
       console.log(search)
+    }
+
+    const removeList = (event) => {
+      // console.log(search)
+      // console.log(event.target.value)
+      setSearch(() => search.filter((_, index) => index !== 0));
     }
 
 
@@ -161,6 +160,7 @@ const detail = [
                       <li>Fatality Rate: {details[live]?.fatality_rate}</li>
                       <li>Death: {details[live]?.deaths}</li>
                       <li>Death Diff: {details[live]?.deaths_diff}</li>
+                      <li>Date: {details[live]?.date}</li>
                     </ul>
                     </Card.Text>
                     <Button onClick={addToFavorite}>Add to Favs</Button>
@@ -177,11 +177,35 @@ const detail = [
                     <div>
                     <div>
                       Favourite List: 
-                      <ul>
-                      {search.map(function(d, idx){
-                        return (<li key={idx}>{d?.region.province} <th>{d?.region.name}</th> : {d?.active} : {d?.confirmed} { d?.confirmed_diff} {d?.recovered}</li>)
-                      })}
-                      </ul>
+                      <table className='customers'>
+                          <tr>
+                            <th>Country</th>
+                            <th>Active Cases</th>
+                            <th>Confirmed Cases</th>
+                            <th>Confirmed Delta</th>
+                            <th>Recovered</th>
+                            <th>Recovered Delta</th>
+                            <th>Fatality Rate</th>
+                            <th>Death</th>
+                            <th>Death Delta</th>
+                            <th>Cancel</th>
+                          </tr>
+                          {search.map(function(d, idx){
+                             return (<tr key={idx}>
+                                      <td>  {d?.region.province} {d?.region.name}</td> 
+                                      <td>  {d?.active} </td> 
+                                      <td>  {d?.confirmed} </td> 
+                                      <td>  {d?.confirmed_diff}</td> 
+                                      <td>  {d?.recovered}</td>
+                                      <td>  {d?.recovered_diff}</td>
+                                      <td>  {d?.fatality_rate}</td>
+                                      <td>  {d?.deaths}</td>
+                                      <td>  {d?.deaths_diff}</td>
+                                      <td><button onClick={removeList}>x</button></td>
+                            </tr>)}
+                            )}
+                        </table>
+ 
                       </div>
 
                     </div>
