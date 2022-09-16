@@ -70,6 +70,7 @@ function Choosepage() {
     arr()
      },[])
     
+console.log(typeof province)
 
 const detail = [
   {
@@ -165,7 +166,7 @@ const detail = [
                     </ul>
                     </Card.Text>
                     <Button onClick={addToFavorite}>Add to Favs</Button>
-                    <Button href="#">Another Link</Button>
+                    {/* <Button href="#">Another Link</Button> */}
                   </Card.Body>
                 </Card>
               </ul>
@@ -199,10 +200,10 @@ const detail = [
                                       <td>  {d?.confirmed_diff}</td> 
                                       <td>  {d?.recovered}</td>
                                       <td>  {d?.recovered_diff}</td>
-                                      <td>  {d?.fatality_rate}</td>
-                                      <td>  {d?.deaths}</td>
-                                      <td>  {d?.deaths_diff}</td>
-                                      <td><button data-key={idx} key={idx} onClick={(idx)=>removeList(idx)}>x</button></td>
+                             <td>  {d?.fatality_rate}</td>
+                             <td>  {d?.deaths}</td>
+                             <td>  {d?.deaths_diff}</td>
+                             <td><button data-key={idx} key={idx} onClick={(idx)=>removeList(idx)}>x</button></td>
                             </tr>)}
                             )}
                         </table>
@@ -215,15 +216,17 @@ const detail = [
                   <Card.Text>
         
                   </Card.Text>
-                  <Button></Button>
-                  <Button href="#"></Button>
+                  <Button>Reset All</Button>
+                  <h1></h1>
+                  <Button href="Pricing">Plot Graph</Button>
                 </Card.Body>
               </Card>
               </ul>
             </div>   
           </div>
+            <LineGraph province={province} arrActive={arrActive} arrResult={arrResult} live={live}/>
             <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} />
-            <LineGraph arrName={arrName} details={details} live={live}/>
+           
           <br />
           <br />
           <div>
