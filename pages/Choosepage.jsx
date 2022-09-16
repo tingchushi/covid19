@@ -112,8 +112,9 @@ const detail = [
 
     const removeList = (event) => {
       // console.log(search)
-      // console.log(event.target.value)
-      setSearch(() => search.filter((_, index) => index !== 0));
+      console.log(event.target.getAttribute('data-key'))
+      let x = event.target.getAttribute('data-key')
+      setSearch(() => search.filter((_, index) => index != x));
     }
 
 
@@ -201,7 +202,7 @@ const detail = [
                                       <td>  {d?.fatality_rate}</td>
                                       <td>  {d?.deaths}</td>
                                       <td>  {d?.deaths_diff}</td>
-                                      <td><button onClick={removeList}>x</button></td>
+                                      <td><button data-key={idx} key={idx} onClick={(idx)=>removeList(idx)}>x</button></td>
                             </tr>)}
                             )}
                         </table>
