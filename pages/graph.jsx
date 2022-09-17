@@ -1,10 +1,10 @@
 
 import Plot from 'react-plotly.js';
 import React from 'react';
+import {Card} from 'react-bootstrap'
 
  function Graph ({ arrName , arrActive, detailsArr }){
-  return ( <div>
-
+  return ( <Card style={{ width: '70rem' }}>
       <Plot
         data={[
             {
@@ -16,10 +16,10 @@ import React from 'react';
             },
             {type: 'line', x: arrName, y: arrActive, name:'Active Cases'},
         ]}
-        layout={ {width: 1600, height: 900, title: 'Overall' }}
+        layout={ {width: 1100, height: 600, title: 'Overall Active Cases' }}
         />
 
-        </div>
+        </Card>
         );
   }
 
