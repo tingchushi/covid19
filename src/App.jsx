@@ -1,6 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from '/pages/Homepage'
-import DetailsCharts from '/pages/DetailsCharts'
 import Layout from "/layouts/Layout";
 import Choosepage from "../pages/Choosepage";
 
