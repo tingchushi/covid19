@@ -1,13 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import Currencypage from '/pages/Currencypage'
 import Homepage from '/pages/Homepage'
-// import Pricepage from '/pages/Pricepage'
-import currencies from './list'
+import DetailsCharts from '/pages/DetailsCharts'
 import Layout from "/layouts/Layout";
 import Choosepage from "../pages/Choosepage";
-import App1 from "../pages/graph";
-// import graph from './graph'
-
 
 
 function App() {
@@ -23,7 +18,7 @@ function App() {
               element={<Choosepage />}
           />
           </Route>
-          <Route path='/charts' element={<App1 />} />
+          <Route path='/charts' element={<DetailsCharts />} />
           <Route path="*" element={<h1>Not found</h1>} />
         </Routes>
       </BrowserRouter>

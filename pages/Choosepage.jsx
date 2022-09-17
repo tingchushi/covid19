@@ -7,6 +7,7 @@ import {Container ,ListGroup, Col} from 'react-bootstrap';
 import LineGraph from '/pages/LineGraph'
 
 
+
 // https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/
  
 function Choosepage() {
@@ -14,6 +15,9 @@ function Choosepage() {
   const [province, setProvince] = useState([])
   const [active, setActive] = useState([])
   const [confirmed, setConfirmed] = useState([])
+  const [death, setDeath] = useState([])
+  const [recovered, setRecovered] = useState([])
+  const [fatalityRate, setFatalityRate] = useState([])
   const [live, setLive] = useState(0);
   const [details, setDetails] = useState([])
   const [search, setSearch] = useState([])
@@ -22,7 +26,12 @@ function Choosepage() {
   const arrResult = []
   const arrName = name;
   const arrActive = active;
-  const arrConfirmed = confirmed
+  const arrConfirmed = confirmed;
+  const arrDetails = details;
+  const arrDeath = death;
+  const arrRecovered = recovered;
+  const arrFatalityRate = fatalityRate;
+
  
   const arr = () =>{
     const options = {
@@ -48,19 +57,28 @@ function Choosepage() {
       const province = [];
       const activeCase = [];
       const confirmedCase = [];
+      const recoveredCase = [];
+      const deathCase = [];
+      const fatalityRate = [];
   
     for (var key in arrResult){
       countryName.push(arrResult[key].region.name)
       province.push(arrResult[key].region.province)
       activeCase.push(arrResult[key].active)
       confirmedCase.push(arrResult[key].confirmed)
+      recoveredCase.push(arrResult[key].recoverd)
+      deathCase.push(arrResult[key].deaths)
+      fatalityRate.push(arrResult[key].fatality_rate)
     }
-
+    
       setDetails(arrResult)
       setName(countryName)
       setProvince(province)
       setActive(activeCase)
       setConfirmed(confirmedCase)
+      setRecovered(recoveredCase)
+      setDeath(deathCase)
+      setFatalityRate(fatalityRate)
       setDetails(data.data)
    
     })
@@ -70,58 +88,29 @@ function Choosepage() {
     arr()
      },[])
     
-console.log(typeof province)
+// console.log(typeof province)
 
-const detail = [
-  {
-    id: 1,
-    name: "Rahvayana",
-    // image: require("./assets/rahvayana.jpg"),
-    description:
-      "Yang menulis di buku ini belum tentu saya, sebab Rahwana tak mati-mati. Gunung kembar Sondara-Sondari yang mengimpit Rahwana cuma mematikan tubuhnya semata. Jiwa Rahwana terus hidup. Hidupnya menjadi gelembung-gelembung alias jisim. Siapa pun bisa dihinggapi gelembung itu, tak terkecuali saya.   Yang menulis di buku ini barangkali gelembung-gelembung itu, jisim…",
-    author: "Sujiwo Tejo"
-  },
-  {
-    id: 2,
-    name: "Tuhan Maha Asyik",
-    // image: require("./assets/tuhan.jpg"),
-    description:
-      "Melalui kisah-kisah yang dikemas dalam dialog polos ala dunia bocah, Sujiwo Tejo dan Buya MN. Kamba coba mengajak kita ”bermain-main” untuk memperkenalkan ke-Maha Asyik-an Tuhan. Tuhan sangat asyik ketika Dia tidak kita kurung paksa dalam penamaan-penamaan dan pemaknaan-pemaknaan. Dia tak terdefinisikan. Dia tak terkmaknakan. Dia ada sebelum definisi dan makna…",
-    author: "Sujiwo Tejo"
-  },
-  {
-    id: 3,
-    name: "Sabdo Cinta Angon Kasih",
-    // image: require("./assets/sabdo.jpg"),
-    description:
-      "Mbok Jamu berselendang ungu itu menjadi sumber kebahagiaan bagi orang-orang yang datang dan pergi membeli dagangannya. Bukan karena rambut hitam kehijauannya, lereng keningnya yang bening, atau kecantikannya yang tiada tara. Para pria menjadi platinum member jamunya karena Mbok Jamu pintar memosisikan diri sebagai konco wingking. Perempuan yang posisinya selangkah di…",
-    author: "Sujiwo Tejo"
-  },
-  {
-    id: 4,
-    name: "Talijiwo",
-    // image: require("./assets/talijiwo.jpg"),
-    description:
-      "Sudah berapa lama kau terjebak dengan beragam kesibukan yang tak habis-habis itu? Berhentilah berbusa-busa tentang kemerdekaan bila ternyata kau sendiri tak punya waktu luang. Padahal, hanya di dalam waktu luang manusia bisa berpikir dan merenung tentang bagaimana seyogianya mengisi kemerdekaan hidup. Maka, waktu luang itu jangan dimampatkan lagi dengan melulu…",
-    author: "Sujiwo Tejo"
-  }
-]
+// console.log(details)
     const addToFavorite = () => {
       setSearch([...search, details[live]])
-      console.log(search)
     }
 
     const removeList = (event) => {
-      // console.log(search)
       console.log(event.target.getAttribute('data-key'))
       let x = event.target.getAttribute('data-key')
       setSearch(() => search.filter((_, index) => index != x));
     }
 
-
     const handleChange = (event) => {
       console.log('change');
       console.log("event",setLive(event.target.value))
+    }
+
+    const removeAll = () => {
+      console.log("remove all")
+      console.log(search.length)
+      setSearch(() => search.splice(0,search.length))
+
     }
 
 //https://thewebdev.info/2022/02/07/how-to-map-multiple-arrays-with-javascript/
@@ -132,6 +121,8 @@ const detail = [
         </option> 
         
     )})
+
+      // console.log(death)
 
       return (
       <div> 
@@ -166,7 +157,6 @@ const detail = [
                     </ul>
                     </Card.Text>
                     <Button onClick={addToFavorite}>Add to Favs</Button>
-                    {/* <Button href="#">Another Link</Button> */}
                   </Card.Body>
                 </Card>
               </ul>
@@ -194,12 +184,12 @@ const detail = [
                           </tr>
                           {search.map(function(d, idx){
                              return (<tr key={idx}>
-                                      <td>  {d?.region.province} {d?.region.name}</td> 
-                                      <td>  {d?.active} </td> 
-                                      <td>  {d?.confirmed} </td> 
-                                      <td>  {d?.confirmed_diff}</td> 
-                                      <td>  {d?.recovered}</td>
-                                      <td>  {d?.recovered_diff}</td>
+                             <td>  {d?.region.province} {d?.region.name}</td> 
+                             <td>  {d?.active} </td> 
+                             <td>  {d?.confirmed} </td> 
+                             <td>  {d?.confirmed_diff}</td> 
+                             <td>  {d?.recovered}</td>
+                             <td>  {d?.recovered_diff}</td>
                              <td>  {d?.fatality_rate}</td>
                              <td>  {d?.deaths}</td>
                              <td>  {d?.deaths_diff}</td>
@@ -216,17 +206,16 @@ const detail = [
                   <Card.Text>
         
                   </Card.Text>
-                  <Button>Reset All</Button>
+                  <Button onClick={removeAll}>Reset All</Button>
                   <h1></h1>
-                  <Button href="Pricing">Plot Graph</Button>
+                  <Button arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} href="/charts" >Plot Graph</Button>
                 </Card.Body>
               </Card>
               </ul>
             </div>   
           </div>
-            <LineGraph province={province} arrActive={arrActive} arrResult={arrResult} live={live}/>
-            <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} />
-           
+            <LineGraph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered}/>
+            <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} />
           <br />
           <br />
           <div>
