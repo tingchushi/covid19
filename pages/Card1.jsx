@@ -48,7 +48,7 @@ function Card1({search, removeAll, removeList}) {
     </Card.Text>
     <Button onClick={removeAll}>Reset All</Button>
     <h1></h1>
-    <Button href="/charts" >Plot Graph</Button>
+    <Button href="/Analysis/charts" search={search} >Plot Graph</Button>
     </Card.Body>
     </Card>
     )

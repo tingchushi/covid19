@@ -2,7 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Homepage from '/pages/Homepage'
 import Layout from "/layouts/Layout";
 import Choosepage from "../pages/Choosepage";
-
+import DetailsChart from "../pages/DetailsCharts";
+import API from "../API";
 
 function App() {
 
@@ -17,7 +18,7 @@ function App() {
               element={<Choosepage />}
           />
           </Route>
-          <Route path='/charts' element={<DetailsCharts />} />
+          <Route path='/Analysis/charts' element={<DetailsChart API={API}/>} />
           <Route path="*" element={<h1>Not found</h1>} />
         </Routes>
       </BrowserRouter>

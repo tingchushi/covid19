@@ -1,6 +1,6 @@
 import { Button , Card} from 'react-bootstrap'
 
-function Card2({details, addToFavorite, live}) {
+function Card2({details, addToFavorite, live, handleClick}) {
 
     return (
 
@@ -22,7 +22,7 @@ function Card2({details, addToFavorite, live}) {
     <li>Date: {details[live]?.date}</li>
   </ul>
   </Card.Text>
-  <Button onClick={addToFavorite}>Add to Favs</Button>
+  <Button onClick={addToFavorite} >Add to Favs</Button>
 </Card.Body>
 </Card>
     )

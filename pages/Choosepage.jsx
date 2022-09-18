@@ -7,7 +7,7 @@ import {Container ,ListGroup, Col} from 'react-bootstrap';
 import LineGraph from '/pages/LineGraph'
 import Card1 from './Card1'
 import Card2 from './Card2'
-
+import DetailsChart from './DetailsCharts'
 
 
 
@@ -24,6 +24,7 @@ function Choosepage() {
   const [live, setLive] = useState(0);
   const [details, setDetails] = useState([])
   const [search, setSearch] = useState([])
+  const [isShown, setIsShown] = useState(false);
 
   
   const arrResult = []
@@ -113,6 +114,14 @@ function Choosepage() {
 
     }
 
+    const handleClick = event => {
+      // 👇️ toggle shown state
+      setIsShown(current => !current);
+  
+      // 👇️ or simply set it to true
+      // setIsShown(true);
+    };
+
 //https://thewebdev.info/2022/02/07/how-to-map-multiple-arrays-with-javascript/
     const country = (name, province) => name.map((x, i) => {
       return (
@@ -126,6 +135,15 @@ function Choosepage() {
 
       return (
       <div> 
+         <button onClick={handleClick}>Click</button>
+         {isShown && (
+        <div>
+          <h2>Some content here</h2>
+        </div>
+      )}
+
+      {/* 👇️ show component on click */}
+      {isShown && <h3 />}
         <h3>
         <Container>
           <Form.Label className='formlabel'>Select a Country</Form.Label>
@@ -135,12 +153,13 @@ function Choosepage() {
           </Form.Control>
         </Container>
           <br />
+          {/* https://bobbyhadz.com/blog/react-onclick-show-component#:~:text=To%20show%20or%20hide%20another,based%20on%20the%20state%20variable. */}
           <div className="cardContainer" style={{paddingLeft:'10px'}}>
               <div style={{padding : "10px"}}>
-                <Card2 details={details} live={live} addToFavorite={addToFavorite}/>
+                <Card2 details={details} live={live} addToFavorite={addToFavorite} handleClick={handleClick}/>
               </div>
               <div style={{padding : "10px"}}>
-              <Card1 search={search} removeAll={removeAll} removeList={removeList}/>
+              <Card1 search={search} removeAll={removeAll} removeList={removeList} />
               </div>
           </div>
           <div className='cardContainer' style={{paddingLeft:'10px'}}>
@@ -150,16 +169,18 @@ function Choosepage() {
             <div style={{padding:'10px'}}>
               <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} />
             </div>
-      
+          </div>
+          <div>
+            <DetailsChart search={search}/>
           </div>
           <div>
               <Link to="/">
               <Button>Home</Button>
             </Link>
           </div>
-      </h3>
+        </h3>
       
-</div>
+      </div>
   )
 }
 export default Choosepage
