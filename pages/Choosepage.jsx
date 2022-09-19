@@ -92,8 +92,10 @@ function Choosepage() {
     arr()
      },[])
     
-    const addToFavorite = () => {
-      setSearch([...search, details[live]]);
+    const addToFavorite = (event) => {
+
+    setSearch([...search, details[live]]);
+        // setSearch([...search, details[live]]);
     }
 
     const removeList = (event) => {
@@ -134,16 +136,7 @@ function Choosepage() {
       // console.log(death)
 
       return (
-      <div> 
-         <button onClick={handleClick}>Click</button>
-         {isShown && (
-        <div>
-          <h2>Some content here</h2>
-        </div>
-      )}
-
-      {/* 👇️ show component on click */}
-      {isShown && <h3 />}
+      <div style={{color:'lightslategray', backgroundColor:'lightslategray',padding:'0px'}}> 
         <h3>
         <Container>
           <Form.Label className='formlabel'>Select a Country</Form.Label>
@@ -152,34 +145,29 @@ function Choosepage() {
             {country(province,name)}
           </Form.Control>
         </Container>
-          <br />
+          <div style={{padding:'8px'}}/>
           {/* https://bobbyhadz.com/blog/react-onclick-show-component#:~:text=To%20show%20or%20hide%20another,based%20on%20the%20state%20variable. */}
           <div className="cardContainer" style={{paddingLeft:'10px'}}>
               <div style={{padding : "10px"}}>
-                <Card2 details={details} live={live} addToFavorite={addToFavorite} handleClick={handleClick}/>
+                <Card2 details={details} live={live} addToFavorite={addToFavorite} handleClick={handleClick} className='card'/>
               </div>
               <div style={{padding : "10px"}}>
-              <Card1 search={search} removeAll={removeAll} removeList={removeList} />
+                 <Card1 search={search} removeAll={removeAll} removeList={removeList} handleClick={handleClick} className='card'/>
               </div>
           </div>
           <div className='cardContainer' style={{paddingLeft:'10px'}}>
             <div style={{padding:'10px'}}>
-              <LineGraph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered}/>
+              <LineGraph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/>
             </div>
             <div style={{padding:'10px'}}>
-              <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} />
+
+              <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/>
             </div>
           </div>
-          <div>
-            <DetailsChart search={search}/>
-          </div>
-          <div>
-              <Link to="/">
-              <Button>Home</Button>
-            </Link>
+          <div style={{backgroundColor:'lightslategray',padding: '10px'}}>
+            {isShown && <DetailsChart search={search}/>}
           </div>
         </h3>
-      
       </div>
   )
 }

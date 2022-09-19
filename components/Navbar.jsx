@@ -16,7 +16,7 @@ import {Link} from 'react-router-dom'
 //   }
   
 //   export default Navbar;
-
+import { FaBeer } from 'react-icons/fa';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -27,6 +27,8 @@ function NavBar1() {
     <>
       <Navbar bg="dark" variant="dark" className='header'>
         <Container>
+      <h3> Lets go for a <FaBeer />? </h3>
+
           <Navbar.Brand href="/">Home</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/analysis">Analysis</Nav.Link>

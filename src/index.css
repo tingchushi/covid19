@@ -6,7 +6,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: lightslategrey;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -90,15 +90,9 @@ top: -10px;
   border: black;
   cursor: pointer;
   position: absolute;
-  top: 64.5px;
+  top: 82px;
   left: 160px;
   margin: auto;
-
-}
-
-.footer {
-  bottom: 10px;
-  position: absolute;
 
 }
 
@@ -107,6 +101,7 @@ top: -10px;
   left: 0px;
   /* position: absolute;
   top: 300px; */
+  background-color: lightslategray;
 
 }
 
@@ -143,4 +138,9 @@ top: -10px;
   background-color: #04AA6D;
   /* border-radius: 10em; */
   color: white;
+}
+
+.card{
+
+  background-color: white;
 }

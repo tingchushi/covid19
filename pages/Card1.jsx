@@ -1,6 +1,6 @@
 import { Button , Card} from 'react-bootstrap'
 
-function Card1({search, removeAll, removeList}) {
+function Card1({search, removeAll, removeList, handleClick}) {
 
     return (
 <Card style={{ width: '70rem' }}>
@@ -46,9 +46,10 @@ function Card1({search, removeAll, removeList}) {
     <Card.Text>
 
     </Card.Text>
-    <Button onClick={removeAll}>Reset All</Button>
-    <h1></h1>
-    <Button href="/Analysis/charts" search={search} >Plot Graph</Button>
+    <div sytle={{padding:'100px'}}>
+    <Button onClick={removeAll} style={{marginRight: '3px'}}>Reset All</Button>
+    <Button onClick={handleClick} search={search} >Plot Graph</Button>
+    </div>
     </Card.Body>
     </Card>
     )

@@ -39,11 +39,9 @@ import { catmullRom2bezier } from '@antv/g2plot/lib/utils/path';
           },
           {type: 'line', x: cName, y: mapfatality, name:'Fatality Rate (%)', marker: {color: 'purple'}},
       ]}
-      layout={ {width: 1600, height: 900, title: 'Fatality Rate (%)', maker:{color: 'green'} }}
+      layout={ {width: 1600, height: 900, title: 'Fatality Rate (%)', maker:{color: 'green'}, plot_bgcolor:"black", paper_bgcolor:"#FFF3"}}
       />
-      <h1>
-        <Button href='/analysis'>Back to Mainpage</Button>
-      </h1>
+
       </div>
       );
   }

@@ -14,7 +14,7 @@ function Graph ({arrName, arrConfirmed, live, arrActive, arrDeath, arrRecovered}
                 type: 'pie', }
             ]}
             
-            layout = {{width: 450, height: 600, title:arrName[live]}}
+            layout = {{width: 450, height: 600, title:arrName[live], plot_bgcolor:"orange", paper_bgcolor:"#FFF3"}}
             />
         </Card>
     );

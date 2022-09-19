@@ -16,7 +16,7 @@ import {Card} from 'react-bootstrap'
             },
             {type: 'line', x: arrName, y: arrActive, name:'Active Cases'},
         ]}
-        layout={ {width: 1100, height: 600, title: 'Overall Active Cases' }}
+        layout={ {width: 1100, height: 600, title: 'Overall Active Cases', plot_bgcolor:"black", paper_bgcolor:"lightgrey" }}
         />
 
         </Card>
