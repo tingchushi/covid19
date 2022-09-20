@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
 import {Link} from 'react-router-dom'
-import Graph from './Graph'
+import OverallGraph from './OverallChart'
 import { Button , Card} from 'react-bootstrap'
 import {Container ,ListGroup, Col} from 'react-bootstrap';  
-import LineGraph from '/pages/LineGraph'
+import PieChart from '/pages/PieChart'
 import Card1 from './Card1'
 import Card2 from './Card2'
 import DetailsChart from './DetailsCharts'
+// import { PieChart } from 'bizcharts'
 
 
 
@@ -96,14 +97,14 @@ function Choosepage() {
       // const arr2 = search
       const value2 = details[live]
       
-      const index = search.findIndex(object => object?.region.name === value2?.region.name);
+      const index = search.findIndex(object => object?.region.lat === value2?.region.lat);
       
       if (index === -1) {
         search.push(value2);
       }
       
       // 👇️ [{ id: 1 }, { id: 2 }, { id: 3 }]
-      console.log(search)
+      // console.log(search)
       // console.log(arr2);
       setSearch([...search]);
         // setSearch([...search, details[live]]);
@@ -144,7 +145,7 @@ function Choosepage() {
       // console.log(death)
 
       return (
-      <div style={{color:'lightslategray', backgroundColor:'lightslategray',padding:'0px'}}> 
+      <div style={{color:'lightslategray', backgroundColor:'lightslategray',padding:'0px', paddingBottom:'10px'}}> 
         <h3>
         <Container>
           <Form.Label className='formlabel'>Select a Country</Form.Label>
@@ -165,14 +166,14 @@ function Choosepage() {
           </div>
           <div className='cardContainer' style={{paddingLeft:'10px'}}>
             <div style={{padding:'10px'}}>
-              <LineGraph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/>
+              <PieChart arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/>
             </div>
-            <div style={{padding:'10px'}}>
+            <div style={{padding:'10px', paddingBottom:'20px'}}>
 
-              <Graph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/>
+              <OverallGraph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/>
             </div>
           </div>
-          <div style={{backgroundColor:'lightslategray',padding: '10px'}}>
+          <div style={{backgroundColor:'lightslategray',paddingLeft: '20px', paddingBottom:'5px'}}>
             {isShown && <DetailsChart search={search}/>}
           </div>
         </h3>

@@ -25,14 +25,14 @@ function Card1({search, removeAll, removeList, handleClick}) {
           {search.map(function(d, idx){
              return (<tr key={idx}>
              <td>  {d?.region.province} {d?.region.name}</td> 
-             <td>  {d?.active} </td> 
-             <td>  {d?.confirmed} </td> 
-             <td>  {d?.confirmed_diff}</td> 
-             <td>  {d?.recovered}</td>
-             <td>  {d?.recovered_diff}</td>
-             <td>  {d?.fatality_rate}</td>
-             <td>  {d?.deaths}</td>
-             <td>  {d?.deaths_diff}</td>
+             <td>  {d?.active.toLocaleString()} </td> 
+             <td>  {d?.confirmed.toLocaleString()} </td> 
+             <td>  {d?.confirmed_diff.toLocaleString()}</td> 
+             <td>  {d?.recovered.toLocaleString()}</td>
+             <td>  {d?.recovered_diff.toLocaleString()}</td>
+             <td>  {(d?.fatality_rate * 100).toFixed(2)}</td>
+             <td>  {d?.deaths.toLocaleString()}</td>
+             <td>  {d?.deaths_diff.toLocaleString()}</td>
              <td><button data-key={idx} key={idx} onClick={(idx)=>removeList(idx)}>x</button></td>
             </tr>)}
             )}

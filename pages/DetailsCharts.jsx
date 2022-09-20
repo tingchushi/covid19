@@ -5,9 +5,9 @@ import { Button } from 'react-bootstrap';
 import { catmullRom2bezier } from '@antv/g2plot/lib/utils/path';
 // import Choosepage from './pages/Choosepage'
 
- function DetailsChart ({search, arrName,arrActive,arrConfirmed,live,arrDetails,arrDeath,arrRecovered, API}){
+ function DetailsChart ({search}){
 
-  const countryName = Object.values(search);
+  const countryName = search;
 
   const cName = countryName.map( (d , i) => countryName[i]?.region.province +' '+countryName[i]?.region.name)
   console.log(cName)
@@ -20,7 +20,7 @@ import { catmullRom2bezier } from '@antv/g2plot/lib/utils/path';
 
   const newArr = countryName.map( (d , i)=> {
     countryName[i]?.region.name
-    console.log(i)
+    // console.log(i)
   })
 
   console.log(newArr)
@@ -39,7 +39,7 @@ import { catmullRom2bezier } from '@antv/g2plot/lib/utils/path';
           },
           {type: 'line', x: cName, y: mapfatality, name:'Fatality Rate (%)', marker: {color: 'purple'}},
       ]}
-      layout={ {width: 1600, height: 900, title: 'Fatality Rate (%)', maker:{color: 'green'}, plot_bgcolor:"black", paper_bgcolor:"#FFF3"}}
+      layout={ {width: 1700, height: 900, title: 'Fatality Rate (%)', maker:{color: 'green'}, plot_bgcolor:"lightslategray", paper_bgcolor:"#FFF3", paddingTop:'10px'}}
       />
 
       </div>

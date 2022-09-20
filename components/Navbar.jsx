@@ -9,7 +9,6 @@ function NavBar1() {
     <>
       <Navbar bg="dark" variant="dark" className='header'>
         <Container>
-      {/* <h3> Lets go for a <FaBeer />? </h3> */}
 
           <Navbar.Brand href="/">Home</Navbar.Brand>
           <Nav className="me-auto">

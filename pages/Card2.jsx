@@ -11,13 +11,13 @@ function Card2({details, addToFavorite, live, handleClick}) {
   <Card.Text>
   <ul style={{fontSize: 18}}>
     <li> Index : {live}</li> 
-    <li> Active Cases : {details[live]?.active}</li>
-    <li>Confirmed Cases :{details[live]?.confirmed}</li>
-    <li>Confirmed Diff :{details[live]?.confirmed_diff}</li>
-    <li>Recovered: {details[live]?.recovered}</li>
-    <li>Recovered Diff: {details[live]?.recovered_diff}</li>
-    <li>Fatality Rate: {details[live]?.fatality_rate}</li>
-    <li>Death: {details[live]?.deaths}</li>
+    <li> Active Cases : {details[live]?.active.toLocaleString()}</li>
+    <li>Confirmed Cases :{details[live]?.confirmed.toLocaleString()}</li>
+    <li>Confirmed Diff :{details[live]?.confirmed_diff.toLocaleString()}</li>
+    <li>Recovered: {details[live]?.recovered.toLocaleString()}</li>
+    <li>Recovered Diff: {details[live]?.recovered_diff.toLocaleString()}</li>
+    <li>Fatality Rate (%): {(details[live]?.fatality_rate * 100 ).toFixed(2)}</li>
+    <li>Death: {details[live]?.deaths.toLocaleString()}</li>
     <li>Death Diff: {details[live]?.deaths_diff}</li>
     <li>Date: {details[live]?.date}</li>
   </ul>
