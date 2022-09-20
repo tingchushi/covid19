@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
-import {Link} from 'react-router-dom'
+import {BrowserRouter, Link} from 'react-router-dom'
 import OverallGraph from './OverallChart'
 import { Button , Card} from 'react-bootstrap'
 import {Container ,ListGroup, Col} from 'react-bootstrap';  
@@ -26,6 +26,7 @@ function Choosepage() {
   const [details, setDetails] = useState([])
   const [search, setSearch] = useState([])
   const [isShown, setIsShown] = useState(false);
+  const [status, setStatus] = useState("idle");
 
   
   const arrResult = []
@@ -145,7 +146,7 @@ function Choosepage() {
       // console.log(death)
 
       return (
-      <div style={{color:'lightslategray', backgroundColor:'lightslategray',padding:'0px', paddingBottom:'10px'}}> 
+      <div style={{color:'lightslategray', backgroundColor:'lightslategray',padding:'10px', paddingBottom:'10px', paddingTop:'1px'}}> 
         <h3>
         <Container>
           <Form.Label className='formlabel'>Select a Country</Form.Label>
@@ -154,7 +155,7 @@ function Choosepage() {
             {country(province,name)}
           </Form.Control>
         </Container>
-          <div style={{padding:'8px'}}/>
+          <div style={{padding:'8px', borderRadius: '5px'}}/>
           {/* https://bobbyhadz.com/blog/react-onclick-show-component#:~:text=To%20show%20or%20hide%20another,based%20on%20the%20state%20variable. */}
           <div className="cardContainer" style={{paddingLeft:'10px'}}>
               <div style={{padding : "10px"}}>
@@ -165,7 +166,7 @@ function Choosepage() {
               </div>
           </div>
           <div className='cardContainer' style={{paddingLeft:'10px'}}>
-            <div style={{padding:'10px'}}>
+            <div style={{padding:'10px',borderRadius: '5px'}}>
               <PieChart arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/>
             </div>
             <div style={{padding:'10px', paddingBottom:'20px'}}>

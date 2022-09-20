@@ -80,6 +80,7 @@ button:focus-visible {
   position: absolute;
   right: 0;
   left: 0;
+  top:71.8px;
   /* margin: auto; */
 }
 
@@ -90,7 +91,7 @@ top: -10px;
   border: black;
   cursor: pointer;
   position: absolute;
-  top: 84px;
+  top: 78px;
   left: 160px;
   margin: auto;
 
@@ -147,4 +148,14 @@ top: -10px;
 .header {
   padding-top:30px;
   height: 60px;
+}
+
+.each-slide, .slide-container {
+  width: 3000px;
+  height: 3000px;
+}
+
+.shadow {
+  background-color: black;
+  color:white;
 }
