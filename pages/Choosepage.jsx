@@ -93,8 +93,19 @@ function Choosepage() {
      },[])
     
     const addToFavorite = (event) => {
-
-    setSearch([...search, details[live]]);
+      // const arr2 = search
+      const value2 = details[live]
+      
+      const index = search.findIndex(object => object?.region.name === value2?.region.name);
+      
+      if (index === -1) {
+        search.push(value2);
+      }
+      
+      // 👇️ [{ id: 1 }, { id: 2 }, { id: 3 }]
+      console.log(search)
+      // console.log(arr2);
+      setSearch([...search]);
         // setSearch([...search, details[live]]);
     }
 
@@ -117,13 +128,10 @@ function Choosepage() {
     }
 
     const handleClick = event => {
-      // 👇️ toggle shown state
       setIsShown(current => !current);
-  
-      // 👇️ or simply set it to true
-      // setIsShown(true);
     };
 
+    
 //https://thewebdev.info/2022/02/07/how-to-map-multiple-arrays-with-javascript/
     const country = (name, province) => name.map((x, i) => {
       return (
