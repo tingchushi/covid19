@@ -6,7 +6,7 @@ import { Card } from 'react-bootstrap';
 function Graph ({arrName, arrConfirmed, live, arrActive, arrDeath, arrRecovered}){
    
     return (
-     <Card style={{ width: '30rem'}}>
+     <Card style={{ width: '30rem', backgroundColor:'lightgrey'}}>
         <Plot
             data = {[{
                 values: [JSON.stringify(arrActive[live]),JSON.stringify(arrDeath[live])],
@@ -14,7 +14,7 @@ function Graph ({arrName, arrConfirmed, live, arrActive, arrDeath, arrRecovered}
                 type: 'pie', }
             ]}
             
-            layout = {{width: 450, height: 600, title:arrName[live], plot_bgcolor:"orange", paper_bgcolor:"#FFF3"}}
+            layout = {{width: 475, height: 600, title:arrName[live], plot_bgcolor:"orange", paper_bgcolor:"#FFF3"}}
             />
         </Card>
     );

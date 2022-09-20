@@ -90,7 +90,7 @@ top: -10px;
   border: black;
   cursor: pointer;
   position: absolute;
-  top: 82px;
+  top: 84px;
   left: 160px;
   margin: auto;
 
@@ -142,4 +142,9 @@ top: -10px;
 
 .card{
   background-color: white;
+}
+
+.header {
+  padding-top:30px;
+  height: 60px;
 }

@@ -3,7 +3,7 @@ import { Button , Card} from 'react-bootstrap'
 function Card1({search, removeAll, removeList, handleClick}) {
 
     return (
-<Card style={{ width: '70rem' }}>
+<Card style={{ width: '75rem', backgroundColor:'lightgrey' }}>
 <Card.Body>
   <Card.Title>
     <div>

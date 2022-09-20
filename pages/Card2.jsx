@@ -4,7 +4,7 @@ function Card2({details, addToFavorite, live, handleClick}) {
 
     return (
 
-<Card style={{ width: '30rem' }}>
+<Card style={{ width: '30rem', backgroundColor:'lightgrey' }}>
 <Card.Body>
   <Card.Title>{details[live]?.region.province}  {details[live]?.region.name}</Card.Title>
   <Card.Subtitle className="mb-2 text-muted">Longitude : {details[live]?.region.lat}<br /> Latitude : {details[live]?.region.long}</Card.Subtitle>
