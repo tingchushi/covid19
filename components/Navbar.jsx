@@ -13,10 +13,10 @@ function NavBar1() {
         <a class="navbar-brand" href="#">
     <img src="https://cdn-icons-png.flaticon.com/512/2913/2913584.png" width="50" height="50" alt="" />
   </a>
-          <Navbar.Brand href="/">Home</Navbar.Brand>
+          <Navbar.Brand href="./">Home</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="/analysis">Analysis</Nav.Link>
-            <Nav.Link href="/charts">Charts</Nav.Link>
+            <Nav.Link href="./analysis">Analysis</Nav.Link>
+            <Nav.Link href="./charts">Charts</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
