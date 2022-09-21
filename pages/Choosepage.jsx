@@ -1,16 +1,11 @@
 import { useState, useEffect } from 'react'
 import Form from 'react-bootstrap/Form'
-import {BrowserRouter, Link} from 'react-router-dom'
 import OverallGraph from './OverallChart'
-import { Button , Card} from 'react-bootstrap'
 import {Container ,ListGroup, Col} from 'react-bootstrap';  
 import PieChart from '/pages/PieChart'
-import Card1 from './Card1'
-import Card2 from './Card2'
+import Card1 from './Favlist'
+import Card2 from './Countrydetails'
 import DetailsChart from './DetailsCharts'
-// import LoadingScreen from './loading'
-
-
 
 // https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/
  
@@ -28,7 +23,6 @@ function Choosepage() {
   const [isShown, setIsShown] = useState(false);
   const [loading, setLoading] = useState(true)
 
-  
   const arrResult = []
   const arrName = name;
   const arrActive = active;
@@ -38,7 +32,6 @@ function Choosepage() {
   const arrRecovered = recovered;
   const arrFatalityRate = fatalityRate;
 
- 
   const arr = () =>{
     const options = {
       method: 'GET',
@@ -76,7 +69,6 @@ function Choosepage() {
       deathCase.push(arrResult[key].deaths);
       fatalityRate.push(arrResult[key].fatality_rate);
     }
-    
       setDetails(arrResult);
       setName(countryName);
       setProvince(province);

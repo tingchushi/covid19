@@ -1,9 +1,7 @@
 
 import Plot from 'react-plotly.js';
 import React from 'react';
-import { Button } from 'react-bootstrap';
-import { catmullRom2bezier } from '@antv/g2plot/lib/utils/path';
-// import Choosepage from './pages/Choosepage'
+
 
  function DetailsChart ({search}){
 
@@ -27,7 +25,7 @@ import { catmullRom2bezier } from '@antv/g2plot/lib/utils/path';
 
   return ( <div>
 
-    <Plot
+    <Plot className='overall'
       data={[
           {
               x: cName,
@@ -39,7 +37,7 @@ import { catmullRom2bezier } from '@antv/g2plot/lib/utils/path';
           },
           {type: 'line', x: cName, y: mapfatality, name:'Fatality Rate (%)', marker: {color: 'purple'}},
       ]}
-      layout={ {width: 1700, height: 900, title: 'Fatality Rate (%) vs Overall Active Cases', maker:{color: 'green'}, plot_bgcolor:"lightslategray", paper_bgcolor:"lightgrey", paddingTop:'10px', lineWidth:'100px',  margin: {
+      layout={ {width: 1700, height: 900, title: 'Fatality Rate (%) vs Overall Active Cases(M)', maker:{color: 'green'}, plot_bgcolor:"lightslategray", paper_bgcolor:"lightgrey", paddingTop:'10px', lineWidth:'100px',  margin: {
         l: 50,
         r: 50,
         b: 200,

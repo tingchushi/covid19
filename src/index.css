@@ -16,7 +16,6 @@
 }
 
 .formlabel {
-  /* background-color: #4CAF50; */
   background-color: #04AA6D;
   color: white;
   padding: 16px;
@@ -27,7 +26,6 @@
   right: 0;
   left: 0;
   top:71.8px;
-  /* margin: auto; */
 }
 
 .dropdown {
@@ -83,12 +81,14 @@ top: -10px;
   text-align: center;
   font-size: 14px;
   background-color: #04AA6D;
-  /* border-radius: 10em; */
   color: white;
 }
 
-.card{
+.overall{
   background-color: white;
+  border-radius: 6px;
+  overflow: hidden;
+
 }
 
 .header {

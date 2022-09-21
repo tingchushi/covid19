@@ -1,4 +1,5 @@
 import { Button , Card} from 'react-bootstrap'
+import { React } from 'react'
 
 function Card1({search, removeAll, removeList, handleClick}) {
 

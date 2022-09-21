@@ -4,7 +4,9 @@ import React from 'react';
 import {Card} from 'react-bootstrap'
 
  function OverallGraph ({ arrName , arrActive }){
-  return ( <Card style={{ width: '70rem', backgroundColor:'lightslategray', borderRadius: '5px' }}>
+  return ( 
+  
+  <Card className='overall'>
       <Plot
         data={[
             {
@@ -13,10 +15,11 @@ import {Card} from 'react-bootstrap'
                 type: 'line',
                 mode: 'lines+markers',
                 marker: {color: 'purple'},
+                borderRadius: '5px'
             },
             {type: 'line', x: arrName, y: arrActive, name:'Active Cases'},
         ]}
-        layout={ {width: 1200, height: 600, title: 'Overall Active Cases', plot_bgcolor:"grey", paper_bgcolor:"lightgrey", borderRadius:'50%' ,  margin: {
+        layout={ {width: 1200, height: 600, title: 'Overall Active Cases', plot_bgcolor:"grey", paper_bgcolor:"lightgrey" ,  margin: {
             l: 50,
             r: 50,
             b: 200,
@@ -31,4 +34,5 @@ import {Card} from 'react-bootstrap'
 
     export default OverallGraph;
 //https://codesandbox.io/s/fcn3v?file=/src/Employee_Joined.js
+
 
