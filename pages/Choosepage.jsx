@@ -8,7 +8,7 @@ import PieChart from '/pages/PieChart'
 import Card1 from './Card1'
 import Card2 from './Card2'
 import DetailsChart from './DetailsCharts'
-// import { PieChart } from 'bizcharts'
+// import LoadingScreen from './loading'
 
 
 
@@ -26,7 +26,7 @@ function Choosepage() {
   const [details, setDetails] = useState([])
   const [search, setSearch] = useState([])
   const [isShown, setIsShown] = useState(false);
-  const [status, setStatus] = useState("idle");
+  const [loading, setLoading] = useState(true)
 
   
   const arrResult = []
@@ -92,23 +92,17 @@ function Choosepage() {
 
   useEffect(() => {
     arr()
+    setTimeout(() => setLoading(false), 6000)
      },[])
     
     const addToFavorite = (event) => {
-      // const arr2 = search
       const value2 = details[live]
-      
       const index = search.findIndex(object => object?.region.lat === value2?.region.lat);
-      
       if (index === -1) {
         search.push(value2);
       }
-      
-      // 👇️ [{ id: 1 }, { id: 2 }, { id: 3 }]
-      // console.log(search)
-      // console.log(arr2);
       setSearch([...search]);
-        // setSearch([...search, details[live]]);
+
     }
 
     const removeList = (event) => {
@@ -142,16 +136,17 @@ function Choosepage() {
         </option> 
         
     )})
-
-      // console.log(death)
-
+   
       return (
+       
       <div style={{color:'lightslategray', backgroundColor:'lightslategray',padding:'10px', paddingBottom:'10px', paddingTop:'1px'}}> 
-        <h3>
+         {loading === false ? (
+        <h3> 
         <Container>
           <Form.Label className='formlabel'>Select a Country</Form.Label>
             <br />
           <Form.Control as="select" custom={+true} onChange={handleChange} className='dropdown'>
+          
             {country(province,name)}
           </Form.Control>
         </Container>
@@ -177,7 +172,10 @@ function Choosepage() {
           <div style={{backgroundColor:'lightslategray',paddingLeft: '20px', paddingBottom:'5px'}}>
             {isShown && <DetailsChart search={search}/>}
           </div>
-        </h3>
+        </h3>) : ( 
+          <div style={{height:'900px', textAlign:'center'}}>
+            <div style={{color:'white'}}>Loading....</div><progress style={{height:'10px', width:'100px', justifyContent:'center'}} ></progress>
+          </div>)}
       </div>
   )
 }
