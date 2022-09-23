@@ -7,7 +7,6 @@ import Card1 from './Favlist'
 import Card2 from './Countrydetails'
 import DetailsChart from './DetailsCharts'
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
-import {Button} from 'react-bootstrap'
 
 // https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/
  
