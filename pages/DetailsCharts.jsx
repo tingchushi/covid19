@@ -23,24 +23,24 @@ import React from 'react';
 
   console.log(newArr)
 
-  return ( <div>
+  return ( <div style={{backgroundColor:'#053742', paddingTop: '1px', paddingLeft: '7%'}}>
 
-    <Plot className='overall'
+    <Plot style={{backgroundColor: '#053742', paddingTop:'1px', left: 'auto'}}
       data={[
           {
               x: cName,
               y: mapActive,
               type: 'bar',
               mode: 'lines+markers',
-              marker: {color: '#00BFFF'},
+              marker: {color: 'orange'},
               name:'Active Cases (M)'
           },
           {type: 'line', x: cName, y: mapfatality, name:'Fatality Rate (%)', marker: {color: 'purple'}},
       ]}
-      layout={ {width: 1700, height: 900, title: 'Fatality Rate (%) vs Overall Active Cases(M)', maker:{color: 'green'}, plot_bgcolor:"lightslategray", paper_bgcolor:"lightgrey", paddingTop:'10px', lineWidth:'100px',  margin: {
-        l: 50,
-        r: 50,
-        b: 200,
+      layout={ {width: 1200, height: 600, title: 'Fatality Rate (%) vs Overall Active Cases(M)', maker:{color: 'green'}, plot_bgcolor:"lightslategray", paper_bgcolor:"lightgrey", lineWidth:'100px',  margin: {
+        l: 100,
+        r: 100,
+        b: 150,
         t: 100,
         pad: 4
       },}}

@@ -9,11 +9,12 @@ const Footer = () => {
         justifyContent="between"
         alignItems="center"
         className="mx-auto py-4 flex-wrap"
-        style={{ width: '80%' }}
+        style={{ width: '100%', right: 0 }}
       >
         <CDBBox display="flex" alignItems="center">
+            <div style={{color:'black'}}>...........</div>
           <a href="/" className="d-flex align-items-center p-0 text-dark">
-          <img src="https://cdn-icons-png.flaticon.com/512/2913/2913584.png" width="50" height="50" alt="" />
+          <img src="https://cdn-icons-png.flaticon.com/512/2913/2913584.png" width="50" height="50" left='20%' alt="" />
             <span className="ml-4 h5 mb-0 font-weight-bold" style= {{color:'white', padding:'20px'}}>COVID-19 Analysis</span>
           </a>
         </CDBBox>

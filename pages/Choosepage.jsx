@@ -6,6 +6,8 @@ import PieChart from '/pages/PieChart'
 import Card1 from './Favlist'
 import Card2 from './Countrydetails'
 import DetailsChart from './DetailsCharts'
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import {Button} from 'react-bootstrap'
 
 // https://rapidapi.com/axisbits-axisbits-default/api/covid-19-statistics/
  
@@ -131,43 +133,53 @@ function Choosepage() {
    
       return (
        
-      <div style={{color:'lightslategray', backgroundColor:'lightslategray',padding:'10px', paddingBottom:'10px', paddingTop:'1px'}}> 
+      <div style={{color:'lightslategray', backgroundColor:'lightslategray',padding:'10px', paddingBottom:'10px', paddingTop:'10px'}}> 
          {loading === false ? (
         <h3> 
         <Container>
           <Form.Label className='formlabel'>Select a Country</Form.Label>
             <br />
+            <br/>
+            <br/>
           <Form.Control as="select" custom={+true} onChange={handleChange} className='dropdown'>
           
             {country(province,name)}
-          </Form.Control>
+          </Form.Control> 
         </Container>
-          <div style={{padding:'8px', borderRadius: '5px'}}/>
-          {/* https://bobbyhadz.com/blog/react-onclick-show-component#:~:text=To%20show%20or%20hide%20another,based%20on%20the%20state%20variable. */}
-          <div className="cardContainer" style={{paddingLeft:'10px'}}>
-              <div style={{padding : "10px"}}>
-                <Card2 details={details} live={live} addToFavorite={addToFavorite} handleClick={handleClick} className='card'/>
-              </div>
-              <div style={{padding : "10px"}}>
-                 <Card1 search={search} removeAll={removeAll} removeList={removeList} handleClick={handleClick} className='card'/>
-              </div>
-          </div>
-          <div className='cardContainer' style={{paddingLeft:'10px'}}>
-            <div style={{padding:'10px',borderRadius: '5px'}}>
-              <PieChart arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/>
+            <div style={{display:'flex',width:'auto', height:'auto',alignItems:'center', justifyContent: 'center', paddingLeft:'25%%'}}>
+                <p style={{ left:'auto'}}><Card2 details={details} live={live} addToFavorite={addToFavorite} handleClick={handleClick} className='card'/></p>
+                <p style={{padding:'50px'}}><PieChart  style={{ paddingTop:'50px' }} arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/></p>
             </div>
-            <div style={{padding:'10px', paddingBottom:'20px'}}>
-
-              <OverallGraph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/>
-            </div>
-          </div>
-          <div style={{backgroundColor:'lightslategray',paddingLeft: '20px', paddingBottom:'5px'}}>
+          <div className="App" style={{paddingTop:'0px', top: '0%'}}>
+            <Tabs className="Tabs">
+              <TabList>
+                <Tab>Overview</Tab>
+                <Tab>Favs List</Tab>
+              </TabList>
+            <TabPanel style={{display:'flex'}}>
+              <p style={{padding:'120px'}}><OverallGraph arrName={arrName} arrActive={arrActive} arrConfirmed={arrConfirmed} live={live} arrDetails={arrDetails} arrDeath={arrDeath} arrRecovered={arrRecovered} className='card'/></p>
+              </TabPanel>
+   
+              <TabPanel style={{padding: '0px'}}>
+                <p style={{padding:'120px', color:'black'}}><Card1 search={search} removeAll={removeAll} removeList={removeList} handleClick={handleClick} className='card'/></p>
+                <p><div style={{paddingLeft: '20px', paddingBottom:'0px'}}>
             {isShown && <DetailsChart search={search}/>}
+          </div></p>
+              </TabPanel>
+            </Tabs>
           </div>
         </h3>) : ( 
           <div style={{height:'900px', textAlign:'center'}}>
             <div style={{color:'white'}}>Loading....</div><progress style={{height:'10px', width:'100px', justifyContent:'center'}} ></progress>
           </div>)}
+          {/* <h1>1</h1> */}
+          {/* <h1>1</h1>
+          <h1>1</h1>
+          <h1>1</h1>
+          <h1>1</h1>
+          <h1>1</h1>
+          <h1>1</h1>
+          <h1>1</h1> */}
       </div>
   )
 }

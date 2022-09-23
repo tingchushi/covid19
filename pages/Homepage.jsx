@@ -35,6 +35,11 @@ const Homepage = () =>{
           ))} 
         </Slide>
       </div>
+      <div style={{backgroundColor:'lightslategray', paddingBottom: '15%'}}>
+        <br />
+ 
+    
+      </div>
           </>
     )
 }
