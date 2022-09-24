@@ -37,7 +37,7 @@ import React from 'react';
           },
           {type: 'line', x: cName, y: mapfatality, name:'Fatality Rate (%)', marker: {color: 'purple'}},
       ]}
-      layout={ {width: 1200, height: 600, title: 'Fatality Rate (%) vs Overall Active Cases(M)', maker:{color: 'green'}, plot_bgcolor:"lightslategray", paper_bgcolor:"lightgrey", lineWidth:'100px',  margin: {
+      layout={ {width: 1200, height: 600, title: 'Fatality Rate (%) vs Overall Active Cases(M) by Provine/Country', maker:{color: 'green'}, plot_bgcolor:"lightslategray", paper_bgcolor:"lightgrey", lineWidth:'100px',  margin: {
         l: 100,
         r: 100,
         b: 150,

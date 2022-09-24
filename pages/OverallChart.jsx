@@ -19,7 +19,7 @@ import {Card} from 'react-bootstrap'
             },
             {type: 'line', x: arrName, y: arrActive, name:'Active Cases'},
         ]}
-        layout={ {width: 1200, height: 600, title: 'Overall Active Cases', plot_bgcolor:"grey", paper_bgcolor:"lightgrey" ,  margin: {
+        layout={ {width: 1200, height: 600, title: 'Overall Active Cases by Country', plot_bgcolor:"grey", paper_bgcolor:"lightgrey" ,  margin: {
             l: 50,
             r: 50,
             b: 200,
