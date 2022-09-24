@@ -10,7 +10,7 @@ function NavBar1() {
     <>
       <Navbar bg="dark" variant="dark"  style={{marginBottom:'1px', height: '70px'}}>
         <Container style={{marginBottom:'1px'}}>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
     <img src="https://cdn-icons-png.flaticon.com/512/2913/2913584.png" width="50" height="50" alt="" />
   </a>
           <Navbar.Brand href="./">Home</Navbar.Brand>
