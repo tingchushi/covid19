@@ -112,7 +112,7 @@ function Choosepage() {
     const removeAll = () => {
       console.log("remove all")
       console.log(search.length)
-      setSearch(() => search.splice(0,search.length))
+      setSearch(()=> search.splice(0,search.length))
 
     }
 
